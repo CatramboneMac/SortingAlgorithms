@@ -2,7 +2,7 @@ from random import randrange
 
 def Partition(L, i, k):
     """
-    Separates the data into two unsorted partitions
+    Separates the data into two partitions
     a low partition (i - high) containing values lower than or equal to a selected pivot
             and
     a high partition (high - k) containing values greater than or equal to a selected pivot
