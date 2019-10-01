@@ -74,13 +74,13 @@ def MergeSort(L, i, k):
         Merge(L, i, j, k)
 
 
-UnsortedList = []
+unsorted_list = []
 for a in range(9):
     x = randrange(99)
-    UnsortedList.append(x)
+    unsorted_list.append(x)
 
-KeyList = sorted(UnsortedList)
-print(KeyList)
+key = sorted(unsorted_list)
+print(key)
 
-MergeSort(UnsortedList, 0, len(UnsortedList)-1)
-print(UnsortedList)
+MergeSort(unsorted_list, 0, len(unsorted_list)-1)
+print(unsorted_list)
