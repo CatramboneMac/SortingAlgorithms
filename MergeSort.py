@@ -11,37 +11,48 @@ def Merge(L, i, j, k):
     :return: None
     """
 
-    #Initialize a list
+    # Initialize merged_list to be the size of both partitions combined
     merged_size = k - i + 1
-    merged_L = []
+    merged_list = []  # Start with an empty list
     for a in range(merged_size):
-        merged_L.append(0)
+        merged_list.append(0)  # Fill the list with zeros (for now)
 
     merge_pos = 0
-    left = i
-    right = j + 1
+    left = i  # First index of the left partition
+    right = j + 1  # First index of the right partition
 
-    while left <= j and right <= k:
+    # Compares two elements, one from each partition
+    # Adds the smaller of the two to merged_list
+    while left <= j and right <= k:  # Ensuring we are within the bounds of the left and right partitions
         if L[left] < L[right]:
-            merged_L[merge_pos] = L[left]
-            left += 1
+            merged_list[merge_pos] = L[left]
+            left += 1  # Increment index of the left partition
         else:
-            merged_L[merge_pos] = L[right]
-            right += 1
-        merge_pos += 1
+            merged_list[merge_pos] = L[right]
+            right += 1  # Increment index of the right partition
+        merge_pos += 1  # Increment merge_pos to the next index
 
+    # If left partition is not empty
+    # Add the rest of the left partition to merged_list
     while left <= j:
-        merged_L[merge_pos] = L[left]
+        merged_list[merge_pos] = L[left]
         left += 1
         merge_pos += 1
 
+    # If right partition is not empty
+    # Add the rest of the right partition to merged_list
     while right <= k:
-        merged_L[merge_pos] = L[right]
+        merged_list[merge_pos] = L[right]
         right += 1
         merge_pos += 1
 
+    # At this point, merged_list will contain
+    # every value from the left and right partitions
+    # and will be sorted in ascending order
+
+    # Replaces L[i:k] with merged_list[:]
     for a in range(merged_size):
-        L[i + a] = merged_L[a]
+        L[i + a] = merged_list[a]
 
 
 def MergeSort(L, i, k):
@@ -61,6 +72,7 @@ def MergeSort(L, i, k):
         MergeSort(L, j+1, k)
 
         Merge(L, i, j, k)
+
 
 UnsortedList = []
 for a in range(9):
