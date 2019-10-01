@@ -1,6 +1,5 @@
 from random import randrange
 
-
 def InsertionSort(L):
     for i in range(1, len(L)):
         j = i-1
@@ -12,13 +11,13 @@ def InsertionSort(L):
     return L
 
 
-UnsortedList = []
+unsorted_list = []
 for a in range(9):
     x = randrange(99)
-    UnsortedList.append(x)
+    unsorted_list.append(x)
 
-KeyList = sorted(UnsortedList)
-print(KeyList)
+key = sorted(unsorted_list)
+print(key)
 
-SortedList = InsertionSort(UnsortedList)
-print(SortedList)
+SortedList = InsertionSort(unsorted_list)
+print(unsorted_list)
